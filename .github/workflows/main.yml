@@ -14,7 +14,9 @@ jobs:
     - name: Copy a file from s3
       uses: prewk/s3-cp-action@v2
       with:
+        command: cp
+        source: ./TestTable.ddl
+        destination: s3://ddl.tf
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        source: 's3://ddl.tf'
-        dest: './public'
+        aws_region: eu-west-2
